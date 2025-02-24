@@ -1,0 +1,86 @@
+<html>
+<head>
+    <title>INST377 - LAB 4</title>
+    <link rel="stylesheet" href="lab4.css">
+</head>
+<body>
+ <!--Main Body-->
+ <div class="main-body">
+    <h1 id="pageHeader">INST377 - Lab 4</h1>
+    
+    <!-- First Form -->
+    <div class="sections">
+        <form name="alertMe">
+            <label for="name">Name:</label>
+            <input type="text" placeholder="John" id="name" required>
+            <button type ="button" onclick="showAlert()">Alert Me</button>
+        </form>
+    </div>
+
+    <!-- Second Form -->
+    <div class="sections">
+        <form name="changeColor">
+            <button type="button" onclick="colorChange()">Change Color</button>
+        </form>
+    </div>
+
+    <br>
+    <!-- Third Form -->
+    <div class="sections">
+        <form name="tTester">
+            <label for="textTester">Text Tester:</label>
+            <input type="text" id="textTester" required>
+            <button type="button" onclick="textValidation()">Validate Text</button>
+        </form>
+    </div>
+
+    <!-- Fourth Form -->
+    <div class="sections">
+        <form name="atext">
+            <button type="button" onclick="textAdder()">Add Text</button>
+        </form>
+    </div>
+
+</div>
+
+<script type="text/javascript">
+function showAlert() {
+    const nameInput = document.getElementById("name").value.trim();
+    if (nameInput === "") {
+    alert("Please enter your name!");
+    return;
+        }
+    alert("Hi " + nameInput + "!");
+
+}
+function colorChange(){
+    if (document.body.style.backgroundColor == "aqua") {
+        document.body.style.backgroundColor = "blue";
+    } else {
+        document.body.style.backgroundColor = "aqua";
+    }
+
+}
+function textValidation() {
+    const validation = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+    if (validation.test(document.tTester.textTester.value)){
+        alert("This has special characters")
+    }else{
+        alert("This doesn't have any special characters. You are good!")
+    }
+
+}
+function textAdder() {
+    const heading = document.getElementById("pageHeader");
+    heading.textContent += " Add Text";
+
+}
+
+
+
+</script>
+
+</body>
+
+
+</html>
